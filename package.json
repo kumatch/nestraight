@@ -1,0 +1,28 @@
+{
+  "author": "Yosuke Kumakura <kumatch@gmail.com>",
+  "name": "nestraight",
+  "description": "Access nested object or array part by a straight string key.",
+  "version": "0.1.0",
+  "main": "./lib/nestraight.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kumatch/nestraight.git"
+  },
+  "github": "https://github.com/kumatch/nestraight",
+  "dependencies": {
+  },
+  "devDependencies": {
+    "chai": "*",
+    "mocha": "*",
+
+    "grunt": "~0.4",
+    "grunt-mocha-test": "*"
+  },
+  "optionalDependencies": {},
+  "engines": {
+    "node": ">= 0.8.0"
+  },
+  "scripts": {
+    "test": "grunt test"
+  }
+}
