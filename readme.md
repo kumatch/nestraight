@@ -3,6 +3,14 @@ nestraight
 
 Access nested object or array part by a straight string key.
 
+
+Install
+-----
+
+    $ npm install nestraight
+
+
+
 Usage
 -----
 
