@@ -45,6 +45,10 @@ nestraight.set(data, "list[2]", 50);  //  set data.list[2] = 50
 nestraight.has(data, "foo") // true
 nestraight.has(data, "foo.bar") // true
 nestraight.has(data, "foo.bar.baz") // false
+
+// delete value
+nestraight.del(data, "foo.bar") // delete data.foo.bar
+nestraight.del(data, "list[1]") // delete data.list[1]
 ```
 
 

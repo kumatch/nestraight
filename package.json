@@ -2,7 +2,7 @@
   "author": "Yosuke Kumakura <kumatch@gmail.com>",
   "name": "nestraight",
   "description": "Access nested object or array part by a straight string key.",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "main": "./lib/nestraight.js",
   "repository": {
     "type": "git",
