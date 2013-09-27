@@ -10,6 +10,7 @@
   },
   "github": "https://github.com/kumatch/nestraight",
   "dependencies": {
+    "lodash": "2.1"
   },
   "devDependencies": {
     "chai": "*",

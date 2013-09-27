@@ -101,11 +101,11 @@ describe('get', function () {
             }
         };
 
-        expect(nestraight.get(data, "a")).to.be.undefined;
         expect(nestraight.get(data, "foo.a")).to.be.undefined;
         expect(nestraight.get(data, "foo.bar.42")).to.be.undefined;
-
-        expect(function () { nestraight.get(data, "a.b"); }).to.throw(TypeError);
+        expect(nestraight.get(data, "a")).to.be.undefined;
+        expect(nestraight.get(data, "a.b")).to.be.undefined;
+        expect(nestraight.get(data, "a.b.c")).to.be.undefined;
     });
 
 });
