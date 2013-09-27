@@ -26,12 +26,25 @@ var data = {
 };
 
 
+// get nested value
 nestraight.get(data, "foo.bar");  // 10
-nestraight.get(data, "list[0]");   // 20
-nestraight.get(data, "list.1");    // 30
+nestraight.get(data, "list[0]");  // 20
+nestraight.get(data, "list.1");   // 30
 
+// get undefined all case
+nestraight.get(data, "foo.bar.baz");
+nestraight.get(data, "foo.bar.baz.qux");
+nestraight.get(data, "list.2");
+nestraight.get(data, "list.2.3.4");
+
+// set nested value
 nestraight.set(data, "foo.baz", 40);  //  set data.foo.baz = 40
 nestraight.set(data, "list[2]", 50);  //  set data.list[2] = 50
+
+// has value by key
+nestraight.has(data, "foo") // true
+nestraight.has(data, "foo.bar") // true
+nestraight.has(data, "foo.bar.baz") // false
 ```
 
 
