@@ -1,9 +1,9 @@
 var expect = require('chai').expect;
 var nestraight = require('../');
 
-describe('del', function () {
+describe('del()', function () {
 
-    it('no nest object', function () {
+    it('should delete an attribute from a simple object', function () {
         var data = {
             foo: 10, bar: 20
         };
@@ -11,10 +11,10 @@ describe('del', function () {
         nestraight.del(data, "foo");
 
         expect(data.foo).be.undefined;
-        expect(data.bar).be.equal(20);
+        expect(data.bar).to.equal(20);
     });
 
-    it('nested object', function () {
+    it('should delete attributes from a nested object', function () {
         var data = {
             foo: {
                 bar: {
@@ -38,7 +38,7 @@ describe('del', function () {
         expect(data).to.deep.equal({ foo: { bar: {} } });
     });
 
-    it('no nest array', function () {
+    it('should delete an index from a simple array', function () {
         var data = [ 10, 20 ];
 
         nestraight.del(data, "0");
@@ -48,7 +48,7 @@ describe('del', function () {
         expect(data.length).to.equal(2);
     });
 
-    it('nested array', function () {
+    it('should delete indexes from a nested array', function () {
         var data = [
             "level 1",
             [
@@ -77,7 +77,7 @@ describe('del', function () {
         expect(data[2]).to.be.undefined;
     });
 
-    it('nested object and array', function () {
+    it('should delete attributes with indexes from nested object with array', function () {
 
         var data = {
             foo: [

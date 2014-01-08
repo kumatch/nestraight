@@ -1,19 +1,19 @@
 var expect = require('chai').expect;
 var nestraight = require('../');
 
-describe('get', function () {
+describe('get()', function () {
 
-    it('no nest object', function () {
+    it('should get a value from a simple object', function () {
         var data = {
             foo: 10, bar: 20
         };
 
-        expect(nestraight.get(data, "foo")).be.equals(data.foo);
-        expect(nestraight.get(data, "bar")).be.equals(data.bar);
+        expect(nestraight.get(data, "foo")).to.equal(data.foo);
+        expect(nestraight.get(data, "bar")).to.equal(data.bar);
 
     });
 
-    it('nested object', function () {
+    it('should get a value from a nested object', function () {
         var data = {
             foo: {
                 bar: {
@@ -22,24 +22,24 @@ describe('get', function () {
             }
         };
 
-        expect(nestraight.get(data, "foo")).be.equals(data.foo);
-        expect(nestraight.get(data, "foo.bar")).be.equals(data.foo.bar);
-        expect(nestraight.get(data, "foo.bar.baz")).be.equals(data.foo.bar.baz);
+        expect(nestraight.get(data, "foo")).to.equal(data.foo);
+        expect(nestraight.get(data, "foo.bar")).to.equal(data.foo.bar);
+        expect(nestraight.get(data, "foo.bar.baz")).to.equal(data.foo.bar.baz);
 
-        expect(nestraight.get(data, "foo.bar['baz']")).be.equals(data.foo.bar.baz);
-        expect(nestraight.get(data, "foo['bar']['baz']")).be.equals(data.foo.bar.baz);
-        expect(nestraight.get(data, "foo['bar'].baz")).be.equals(data.foo.bar.baz);
+        expect(nestraight.get(data, "foo.bar['baz']")).to.equal(data.foo.bar.baz);
+        expect(nestraight.get(data, "foo['bar']['baz']")).to.equal(data.foo.bar.baz);
+        expect(nestraight.get(data, "foo['bar'].baz")).to.equal(data.foo.bar.baz);
     });
 
-    it('no nest array', function () {
+    it('should get a value from a simple array', function () {
         var data = [ 10, 20 ];
 
-        expect(nestraight.get(data, "0")).be.equals(data[0]);
-        expect(nestraight.get(data, "1")).be.equals(data[1]);
+        expect(nestraight.get(data, "0")).to.equal(data[0]);
+        expect(nestraight.get(data, "1")).to.equal(data[1]);
 
     });
 
-    it('nested array', function () {
+    it('should get a value from a nested array', function () {
         var data = [
             "level 1",
             [
@@ -51,20 +51,20 @@ describe('get', function () {
             ]
         ];
 
-        expect(nestraight.get(data, "0")).be.equals(data[0]);
-        expect(nestraight.get(data, "1.0")).be.equals(data[1][0]);
-        expect(nestraight.get(data, "1.1.0")).be.equals(data[1][1][0]);
-        expect(nestraight.get(data, "1.1.1.0")).be.equals("OK");
+        expect(nestraight.get(data, "0")).to.equal(data[0]);
+        expect(nestraight.get(data, "1.0")).to.equal(data[1][0]);
+        expect(nestraight.get(data, "1.1.0")).to.equal(data[1][1][0]);
+        expect(nestraight.get(data, "1.1.1.0")).to.equal("OK");
 
-        expect(nestraight.get(data, "1.1.1[0]")).be.equals("OK");
-        expect(nestraight.get(data, "1.1[1][0]")).be.equals("OK");
-        expect(nestraight.get(data, "1[1][1][0]")).be.equals("OK");
-        expect(nestraight.get(data, "[1][1][1][0]")).be.equals("OK");
-        expect(nestraight.get(data, "[1][1][1].0")).be.equals("OK");
-        expect(nestraight.get(data, "[1].1[1].0")).be.equals("OK");
+        expect(nestraight.get(data, "1.1.1[0]")).to.equal("OK");
+        expect(nestraight.get(data, "1.1[1][0]")).to.equal("OK");
+        expect(nestraight.get(data, "1[1][1][0]")).to.equal("OK");
+        expect(nestraight.get(data, "[1][1][1][0]")).to.equal("OK");
+        expect(nestraight.get(data, "[1][1][1].0")).to.equal("OK");
+        expect(nestraight.get(data, "[1].1[1].0")).to.equal("OK");
     });
 
-    it('nested object and array', function () {
+    it('should get a value from a nested object with array', function () {
 
         var data1 = {
             foo: [
@@ -89,12 +89,12 @@ describe('get', function () {
             }
         ];
 
-        expect(nestraight.get(data1, "foo.1.bar.baz.0")).be.equals("OK");
-        expect(nestraight.get(data2, "1.foo.1.bar")).be.equals("OK");
+        expect(nestraight.get(data1, "foo.1.bar.baz.0")).to.equal("OK");
+        expect(nestraight.get(data2, "1.foo.1.bar")).to.equal("OK");
     });
 
 
-    it('nest and undefined ', function () {
+    it('should get an undefined value if use undefined attributes on object', function () {
         var data = {
             foo: {
                 bar: [ "OK" ]
