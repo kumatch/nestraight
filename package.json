@@ -10,12 +10,12 @@
   },
   "github": "https://github.com/kumatch/nestraight",
   "dependencies": {
-    "lodash": "2.1"
+    "lodash.isobject": "~2.4.1",
+    "lodash.isarray": "~2.4.1"
   },
   "devDependencies": {
     "chai": "*",
     "mocha": "*",
-
     "grunt": "~0.4",
     "grunt-mocha-test": "*"
   },
