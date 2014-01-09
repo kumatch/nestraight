@@ -3,6 +3,8 @@ nestraight
 
 Access nested object or array part by a straight string key.
 
+[![Build Status](https://travis-ci.org/kumatch/nestraight.png?branch=master)](https://travis-ci.org/kumatch/nestraight)
+
 
 Install
 -----
